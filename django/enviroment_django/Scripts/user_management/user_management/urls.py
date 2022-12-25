@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('show_users/', include('show_users.urls'))
+    path('show_users/', include('show_users.urls')),
+    path('half_number/<str:name>/<int:number>', include('url_parameters.urls'))
 ]
