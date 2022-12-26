@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import Template, Context
 import datetime
 from django.template import loader
+from django.shortcuts import render
 
 # Create your views here.
 class Person():
@@ -19,8 +20,4 @@ class Person():
 def register_new_user(request, name, username, password):
 
     person = Person(name,username,password)
-    template_doc = loader.get_template('user_registration.html')
-    ctx = ({'person_name':person.name,'username':person.username,'creation_date':person.creationdate,'groups':person.groups})
-    final_view = template_doc.render(ctx)
-    
-    return HttpResponse (final_view)
+    return render(request, "user_registration.html",{'person_name':person.name,'username':person.username,'creation_date':person.creationdate,'groups':person.groups})
