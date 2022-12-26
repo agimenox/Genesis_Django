@@ -1,44 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import Template, Context
 # Create your views here.
 def show_all_users(request):
+    
+    template_show_all_users = open('C:/Repo_GitHub/Genesis_Django/django/enviroment_django/Scripts/user_management/show_users/templates/show_users.html')   
 
-    table = """
-    <html>
-<head>
-    <title>Show Users</title> <!--Titulo de pagina WEB-->
-    <style>
-        table, th, td {
-            border: 1px solid black;       <!--para dibujar el cuadro negro--> 
-        }
-    </style>
-</head>
-<body>
-    <table style="width: 500px;"> <!--aumenta el tamaño de los espacios dentro de las celdas-->
-        <thead>
-            <tr>
-                <th>Usuario</th> <!--Cabezera o titulo de la columna-->
-                <th>Permiso</th>
-            </tr> <!--Table Route o una fila dentro de la tabla-->
-        </thead>
-        <tbody>
-            <tr>
-                <td>Andres</td> <!--se utiliza para definir elementos estandares dentro de la tabla-->
-                <td>Admin</td>
-            </tr>
-            <tr>
-                <td>Logan</td> <!--se utiliza para definir elementos estandares dentro de la tabla-->
-                <td>Super User</td>
-            </tr>
-            <tr>
-                <td>Chompi</td> <!--se utiliza para definir elementos estandares dentro de la tabla-->
-                <td>User</td>
-            </tr>
-        </tbody>
-</html>
-    
-    
-    
-    
-    """
-    return HttpResponse(table)
+    template_doc = Template(template_show_all_users.read())
+
+    template_show_all_users.close()
+
+    ctx = Context()
+
+    final_view = template_doc.render(ctx)
+
+    return HttpResponse(final_view)
