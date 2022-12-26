@@ -56,7 +56,7 @@ ROOT_URLCONF = 'user_management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Repo_GitHub/Genesis_Django/django/enviroment_django/Scripts/user_management/url_parameters/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

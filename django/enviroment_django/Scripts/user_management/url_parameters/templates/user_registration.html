@@ -1,0 +1,44 @@
+<head>
+    <title>Register User</title> <!--Titulo de pagina WEB-->
+
+</head>
+<body>
+    <center>
+    <div>
+        <br><br>
+        <h2><strong>Usuario Registrado</strong></h2>
+    </div>
+    </center>
+    <br><br><br><br>
+    <p>
+        <center>Se ha creado la cuenta de:<br> <strong>{{person_name}}</strong></center>
+    </p>
+    <center>
+    <table style="width: 500px;"> <!--aumenta el tamaño de los espacios dentro de las celdas-->
+        <thead>
+            <tr>
+                <center>
+               <!--Cabezera o titulo de la columna-->
+                <th>Su usuario es: <strong>{{username}}</strong></th>
+                <th>Fecha de Creacion:  <strong>{{creation_date}}</strong></th>
+                </center>
+            </tr> <!--Table Route o una fila dentro de la tabla-->
+        </thead>
+    </table>
+    </center>
+    <center><br>
+    <p><center><strong>Grupos</strong></center>
+        <ul>
+            {% if groups %}
+                {% for thegroup in groups %}
+                    <li>{{thegroup}}</li>
+                {% endfor %}
+            {% else %}
+                <p>
+                    No hay nada que mostrar.
+                </p>
+            {% endif %}
+
+        </ul>
+    </p>
+    </center>
